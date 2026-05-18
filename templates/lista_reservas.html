@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Lista de Reservas</title>
+
+    <link rel="stylesheet" href="/static/estilo.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <a href="/">🏠 Menu</a>
+
+    <a href="/reservas">Nova Reserva</a>
+
+</div>
+
+<div class="conteudo">
+
+<h1>📋 Lista de Reservas</h1>
+
+<table>
+
+<tr>
+
+    <th>ID</th>
+    <th>Hóspede</th>
+    <th>Entrada</th>
+    <th>Saída</th>
+
+</tr>
+
+{% for r in reservas %}
+
+<tr>
+
+    <td>{{ r[0] }}</td>
+    <td>{{ r[1] }}</td>
+    <td>{{ r[2] }}</td>
+    <td>{{ r[3] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+
+</html>

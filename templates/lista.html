@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Lista de Hóspedes</title>
+
+    <link rel="stylesheet" href="/static/estilo.css">
+
+</head>
+
+<body>
+
+<!-- 🔥 BANNER -->
+<div class="banner">
+    <img src="/static/hospedes_banner.png">
+</div>
+
+<!-- 🔥 FAIXA PADRÃO -->
+<div class="faixa-topo">
+    <h1>Lista de Hóspedes</h1>
+    <h3>Buscar/Visualiza/Gerência hóspedes</h3>
+</div>
+
+<!-- CONTEÚDO CENTRAL -->
+<div class="container-tabela">
+
+<!-- BUSCA -->
+<div class="busca">
+<form action="/lista" method="get">
+
+    <input
+        type="text"
+        name="nome"
+        placeholder="Digite o nome do hóspede"
+    >
+
+    <button type="submit">
+        🔎 Buscar
+    </button>
+
+</form>
+</div>
+
+<br>
+
+<!-- RELATÓRIO -->
+<div style="text-align:center;">
+<form action="/relatorio">
+    <button type="submit">
+        📄 Gerar Relatório PDF
+    </button>
+</form>
+</div>
+
+<br>
+
+<!-- TABELA -->
+<table class="tabela">
+
+<tr>
+
+    <th>ID</th>
+    <th>Nome</th>
+    <th>CPF</th>
+    <th>Telefone</th>
+    <th>Quarto</th>
+    <th>Total</th>
+    <th>Ações</th>
+
+</tr>
+
+{% for h in hospedes %}
+
+<tr>
+
+<td>{{ h[0] }}</td>
+<td>{{ h[1] }}</td>
+<td>{{ h[2] }}</td>
+<td>{{ h[3] }}</td>
+<td>{{ h[4] }}</td>
+<td>{{ h[5] }}</td>
+
+<td>
+
+<a href="/editar/{{ h[0] }}">
+    <button>Editar</button>
+</a>
+
+<a href="/excluir/{{ h[0] }}">
+    <button>Excluir</button>
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<!-- BOTÃO -->
+<div style="text-align:center;">
+<a href="/menu">
+    <button style="width:200px;">Voltar ao Menu</button>
+</a>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+
+<div class="topo">
+
+    <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+
+    <h1>Sistema de Hotelaria</h1>
+
+</div>
+
+<h1>Login do Sistema</h1>
+
+<form action="/autenticar" method="post">
+
+Usuário:
+<br>
+<input type="text" name="usuario" required>
+
+<br><br>
+
+Senha:
+<br>
+<input type="password" name="senha" required>
+
+<br><br>
+
+<button type="submit">Entrar</button>
+
+</form>
+
+
+<div class="rodape">
+
+Sistema desenvolvido para fins educacionais — SENAC
+
+</div>
+
+</body>
+</html>

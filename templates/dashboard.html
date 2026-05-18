@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="/static/estilo.css">
+
+<!-- BIBLIOTECA DO GRAFICO -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- 🔥 BANNER -->
+<div class="banner">
+    <img src="/static/dashboard_banner.png">
+</div>
+
+<!-- 🔥 FAIXA PADRÃO -->
+<div class="faixa-topo">
+    <h1>Dashboard</h1>
+    <h3>Visão geral do sistema de hotelaria</h3>
+</div>
+
+<!-- 🔥 CARDS RESUMO -->
+<div class="container-cards">
+
+    <div class="card">
+        <h3>Hóspedes</h3>
+        <p>{{ total_hospedes }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Faturamento</h3>
+        <p>R$ {{ faturamento }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Último Hóspede</h3>
+        <p>
+        {% if ultimo_nome %}
+            {{ ultimo_nome }}
+        {% else %}
+            Nenhum registro
+        {% endif %}
+        </p>
+    </div>
+
+</div>
+
+<!-- 🔥 GRÁFICO -->
+<div class="container-grafico">
+
+    <h2>Gráfico de Faturamento</h2>
+
+    <canvas id="grafico"></canvas>
+
+</div>
+
+<!-- BOTÃO -->
+<div style="text-align:center;">
+<a href="/menu">
+    <button style="width:200px;">Voltar ao Menu</button>
+</a>
+</div>
+
+<script>
+
+    const nomes = {{ nomes | tojson | safe }};
+    const valores = {{ valores | tojson | safe }};
+
+    const ctx = document.getElementById("grafico");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: nomes,
+            datasets: [{
+                label: "Valor da Hospedagem",
+                data: valores,
+                borderWidth: 1
+            }]
+        }
+    });
+
+</script>
+
+</body>
+</html>

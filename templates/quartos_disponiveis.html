@@ -1,0 +1,21 @@
+<title>Quartos Disponíveis</title>
+
+<link rel="stylesheet" href="/static/estilo.css">
+
+Usuário: {{ session.usuario }}
+
+|
+
+Tipo: {{ session.tipo }}
+
+{% if quartos %}
+
+{% for quarto in quartos %}
+
+{% endfor %}
+
+{% else %}
+
+Nenhum quarto disponível no momento
+
+{% endif %}

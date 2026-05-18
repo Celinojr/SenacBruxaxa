@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Buscar Hóspede</title>
+
+    <link rel="stylesheet" href="/static/estilo.css">
+
+</head>
+
+<body>
+
+<center>
+
+<h1>🔎 Buscar Hóspede</h1>
+
+<hr>
+
+<form action="/buscar" method="get">
+
+    <input
+        type="text"
+        name="nome"
+        placeholder="Digite o nome do hóspede"
+    >
+
+    <button type="submit">
+        Buscar
+    </button>
+
+</form>
+
+<br>
+
+<table border="1">
+
+<tr>
+
+    <th>ID</th>
+    <th>Nome</th>
+    <th>CPF</th>
+    <th>Telefone</th>
+    <th>Quarto</th>
+    <th>Total</th>
+
+</tr>
+
+{% for h in hospedes %}
+
+<tr>
+
+<td>{{ h[0] }}</td>
+<td>{{ h[1] }}</td>
+<td>{{ h[2] }}</td>
+<td>{{ h[3] }}</td>
+<td>{{ h[4] }}</td>
+<td>{{ h[5] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/menu">
+    <button>Voltar ao Menu</button>
+</a>
+
+</center>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cadastro</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+
+</head>
+<body>
+
+<!-- 🔥 BANNER -->
+<div class="banner">
+    <img src="{{ url_for('static', filename='img/hospedes_banner.jpg') }}">
+</div>
+
+<!-- 🔥 FAIXA LARANJA (PADRÃO) -->
+<div class="faixa-topo">
+    <h1>Cadastro de Hóspede</h1>
+    <h3>Preencha os dados do hóspede</h3>
+</div>
+
+<!-- 🔥 CARD DE ACESSO -->
+<div class="container-cards">
+
+    <div class="card">
+        <h3>Listagem</h3>
+        <p>Listar e buscar hóspedes</p>
+        <a href="/lista">
+            <button>Acessar</button>
+        </a>
+    </div>
+
+</div>
+
+<!-- 🔥 FORMULÁRIO -->
+<div class="container-form">
+
+<form action="/salvar" method="post">
+
+<label>Nome:</label>
+<input type="text" name="nome" required>
+
+<label>CPF:</label>
+<input type="text" name="cpf" required>
+
+<label>Telefone:</label>
+<input type="text" name="telefone" required>
+
+<label>Email:</label>
+<input type="email" name="email">
+
+<label>Cidade:</label>
+<input type="text" name="cidade">
+
+<label>Observações:</label>
+<textarea name="observacoes" rows="3"></textarea>
+
+<br>
+
+<button type="submit">Salvar</button>
+
+<a href="/menu">
+<button type="button">Voltar ao Menu</button>
+</a>
+
+</form>
+
+</div>
+
+<!-- RODAPÉ -->
+<div class="rodape">
+Sistema desenvolvido para fins educacionais — SENAC
+</div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Menu Principal</title>
+
+    <link rel="stylesheet" href="/static/estilo.css">
+
+</head>
+
+<body>
+
+<!-- 🔥 BANNER (IMAGEM MAIS LARGA) -->
+<div class="banner">
+    <img src="/static/banner.jpg">
+</div>
+
+<!-- 🔥 FAIXA LARANJA COM INFORMAÇÕES -->
+<div class="faixa-topo">
+
+    <h1>Sistema de Hotelaria</h1>
+
+    <h3>
+        Usuário: {{ session.usuario }} |
+        Tipo: {{ session.tipo }}
+    </h3>
+
+    <h2>Menu Principal</h2>
+
+</div>
+
+<center>
+
+<div class="container-cards">
+
+    <div class="card">
+        <h3>Cadastro</h3>
+        <p>Cadastrar novo hóspede</p>
+        <a href="/cadastro">
+            <button>Acessar</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>Listagem</h3>
+        <p>Listar e buscar hóspedes</p>
+        <a href="/lista">
+            <button>Acessar</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>Dashboard</h3>
+        <p>Visualizar indicadores</p>
+        <a href="/dashboard">
+            <button>Acessar</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>Quartos</h3>
+        <p>Controle de quartos</p>
+        <a href="/quartos">
+            <button>Acessar</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>Reservas</h3>
+        <p>Gerenciar reservas</p>
+        <a href="/reservas">
+            <button>Acessar</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>Sair</h3>
+        <p>Encerrar sessão</p>
+        <a href="/logout">
+            <button>Sair</button>
+        </a>
+    </div>
+
+</div>
+
+</center>
+
+</body>
+
+</html>

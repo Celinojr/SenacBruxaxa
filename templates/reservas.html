@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+<title>Reservas</title>
+
+<link rel="stylesheet" href="/static/estilo.css">
+
+
+</head>
+
+<body>
+
+<div class="conteudo">
+
+<h1>📅 Nova Reserva</h1>
+
+<form action="/salvar_reserva" method="POST">
+
+
+<label>Hóspede:</label>
+
+<select name="nome" required>
+
+    {% for h in hospedes %}
+
+    <option value="{{ h[0] }}">
+        {{ h[0] }}
+    </option>
+
+    {% endfor %}
+
+</select>
+
+<br><br>
+
+<label>Data de Entrada:</label>
+
+<input type="date" name="entrada" required>
+
+<br><br>
+
+<label>Data de Saída:</label>
+
+<input type="date" name="saida" required>
+
+<br><br>
+
+<button type="submit">
+    Salvar Reserva
+</button>
+
+</form>
+
+</div>
+
+<hr>
+
+<div class="conteudo">
+
+<h2>📋 Reservas Cadastradas</h2>
+
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+<th>Nome</th>
+<th>Entrada</th>
+<th>Saída</th>
+<th>Ações</th>
+
+</tr>
+
+{% for r in reservas %}
+
+<tr>
+
+<td>{{ r[0] }}</td>
+<td>{{ r[1] }}</td>
+<td>{{ r[2] }}</td>
+<td>{{ r[3] }}</td>
+
+<td>
+
+<a href="/checkin_reserva/{{ r[0] }}">
+    <button>
+        Check-in
+    </button>
+</a>
+
+<a href="/cancelar_reserva/{{ r[0] }}">
+    <button>
+        Cancelar
+    </button>
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/menu">
+    <button>
+        Voltar ao Menu
+    </button>
+</a>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Controle de Quartos</title>
+    <link rel="stylesheet" href="/static/estilo.css">
+</head>
+
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+    <img src="/static/controle_quartos_banner.jpg">
+</div>
+
+<!-- FAIXA PADRÃO -->
+<div class="faixa-topo">
+    <h1>Controle de Quartos</h1>
+    <h3>Gestão de ocupação em tempo real</h3>
+</div>
+
+<!-- BOTÃO -->
+<div style="text-align:center;">
+    <a href="/menu">
+        <button style="width:200px;">Voltar ao Menu</button>
+    </a>
+</div>
+
+<!-- GRID -->
+<div class="grid-quartos">
+
+{% for quarto, status, hospede in quartos %}
+
+<div class="card">
+
+<h3>Quarto {{ quarto }}</h3>
+
+<p>
+Status:
+{% if status == "Livre" %}
+    <span class="status-livre">{{ status }}</span>
+{% else %}
+    <span class="status-ocupado">{{ status }}</span>
+{% endif %}
+</p>
+
+{% if status != "Livre" %}
+<p>
+Hóspede:<br>
+<b>{{ hospede }}</b>
+</p>
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
